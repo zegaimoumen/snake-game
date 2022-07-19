@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Snake Game</title>
+    <style>
+      html {
+        background: green;
+      }
+
+      body {
+        height: 100vh;
+        width: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        font-family: sans-serif;
+      }
+      #Game {
+        margin-top: 80px;
+        background-color: black;
+        width: 600px;
+        height: 600px;
+        border: 5px solid green;
+        box-shadow: 1px 1px 20px black;
+        display: grid;
+        grid-template-rows: repeat(31, 1fr);
+        grid-template-columns: repeat(31, 1fr);
+        position: relative;
+      }
+
+      button,
+      select {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border: none;
+        background-color: yellowgreen;
+        padding: 5px 10px;
+        font-size: 20px;
+        color: #fff;
+        cursor: pointer;
+        z-index: 1;
+      }
+
+      select {
+        top: 40px;
+        left: 50%;
+      }
+      .snake {
+        background-color: hsl(54, 100%, 50%);
+        box-shadow: 1px 1px 20px hsl(54, 100%, 50%);
+        border-radius: 50%;
+      }
+
+      .snake:nth-of-type(1) {
+        background: url(eays.png);
+        background-size: contain;
+        box-shadow: 1px 1px 20px green;
+      }
+
+      .food {
+        background-color: hsl(9, 100%, 50%);
+        border-radius: 50%;
+        box-shadow: 1px 1px 20px 7px hsl(0deg 100% 50%);
+      }
+      #Score {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        color: #000;
+        z-index: 1;
+      }
+
+      #muireScore {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        color: #000;
+        z-index: 1;
+      }
+
+      #game-over {
+        visibility: hidden;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #game-over p {
+        font-size: 99px;
+        font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+        color: rgb(255, 0, 191);
+      }
+
+      #game-over button {
+        top: 78%;
+      }
+
+      img {
+        position: absolute;
+        right: 0;
+        opacity: 0.7;
+      }
+
+      .info {
+        position: absolute;
+        left: 10px;
+        top: 100px;
+        color: greenyellow;
+        background-color: black;
+        padding: 2px 10px;
+        border: 5px solid green;
+        box-shadow: 1px 1px 20px black;
+      }
+
+      .info img {
+        position: relative;
+        opacity: 1;
+        width: 50px;
+        height: 50px;
+        margin: 5px 0 0 10px;
+      }
+
+      .info span {
+        display: block;
+        color: #fff;
+        text-transform: capitalize;
+      }
+      
+      #escape{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: greenyellow;
+        text-transform: capitalize;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div id="Game">
+      <button id="play">Play</button>
+    </div>
+    <div id="game-over">
+      <p>GameOver</p>
+      <button id="replay">Replay</button>
+    </div>
+    <div id="escape"></div>
+    <div id="Score"></div>
+    <div id="muireScore"></div>
+    <select id="setting">
+      <option value="" selected disabled>
+        Select the level of the spped of the snake bfore click play
+      </option>
+      <option value="slow">slow</option>
+      <option value="normal">normal</option>
+      <option value="spped">spped</option>
+    </select>
+    <img src="snake.png" alt="snake game" />
+    <div class="info">
+      <h2>how to paly</h2>
+      <span>click Enter to Select the spped level </span>
+      <img src="enter.png" alt="Escape key" />
+      <h3>Select the level of the spped of the snake </br> bfore click play</h3>
+      <span>click Enter to Select</span>
+      <img src="enter.png" alt="Escape key" />
+      <span>click Enter to run play button</span>
+      <img src="enter.png" alt="Escape key" />
+      <h3>use this keys for playing</h3>
+      <img src="playkeys.png" alt="paly the game" />
+      <h3>for puse the game</h3>
+      <span>click Escape</span>
+      <img src="Escape.png" alt="Escape key" />
+    </div>
+    <script src="Game.js" defer type="module"></script>
+  </body>
+</html>
