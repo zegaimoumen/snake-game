@@ -59,7 +59,7 @@ function main(currentTime) {
   if (gameOver) {
     document.getElementById("game-over").style.visibility = "visible";
     replay.onclick = function () {
-      window.location = "/";
+      window.location.relode();
     };
 
     window.addEventListener("keyup", (e) => {
